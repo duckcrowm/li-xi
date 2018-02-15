@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="master.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta charset="utf-8">
+  <script src="jquery-3.3.1.js">
+
+  </script>
+</head>
+<body>
+<div class="xx">
+  <p>疯狂点击</br>获取红包哦~</p>
+</div>
+
+<div class="timer">
+  <p id="demo"></p>
+</div>
+
+<div class="result">
+  <p id="xxx"> </p>
+</div>
+
+
+<div class="btn">
+  <button onclick="myFunction(this)" class="enableOnInput"></button>
+</div>
+
+<script>
+var distance = 60;
+var x = setInterval(function() {
+  $('.btn').css("top", "20%");
+  distance --;
+    document.getElementById("demo").innerHTML =  distance + "s ";
+
+    if (distance <= 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "时间到";
+        alert("时间到！你抢到了"+counter+"￥！");
+
+    }
+}, 1000);
+
+var y = setInterval(function() {
+  $('.btn').css("top", Math.random()*100 +"%");
+  $('.btn').css("left", Math.random()*100+ "%");
+}, 1800);
+
+var counter = 0;
+function myFunction(WC){
+  // timer.innerHTML = "1";
+
+  counter = counter + 0.05;
+  $("#xxx").text(counter);
+  if(distance<=0)
+    $(WC).attr('disabled','disabled');
+}
+</script>
+
+</body>
+</html>
